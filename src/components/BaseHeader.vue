@@ -131,13 +131,13 @@ const showOtherInModal = ref(false)
         </button>
         <button
           @click="openModal"
-          class="max-xl:w-8 max-xl:h-6.5 bg-black-800 rounded-full hidden max-[970px]:flex justify-center items-center"
+          class="max-xl:w-8 cursor-pointer max-xl:h-6.5 bg-black-800 rounded-full hidden max-[970px]:flex justify-center items-center"
         >
           <img src="@/assets/img/category.svg" alt="" />
         </button>
         <div
           @click="searchRef.open()"
-          class="w-10 max-[970px]:hidden h-10 max-xl:w-8 max-xl:h-6.5 max-xl:p-1 bg-black-800 p-2 rounded-full"
+          class="w-10 cursor-pointer max-[970px]:hidden h-10 max-xl:w-8 max-xl:h-6.5 max-xl:p-1 bg-black-800 p-2 rounded-full"
         >
           <img class="w-full h-full" src="@/assets/img/candle.svg" alt="" />
         </div>

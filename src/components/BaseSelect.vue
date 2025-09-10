@@ -43,8 +43,11 @@ const selectOption = (opt) => {
              border-transparent hover:border-white/20 focus:outline-none focus:ring-2 focus:ring-orange-500"
       :class="open ? 'border-white/40 ring-2 ring-orange-500' : ''"
     >
-      <span class="truncate">
-        {{ modelValue || placeholder }}
+      <span v-if="modelValue" class="truncate">
+        {{ modelValue  }}
+      </span>
+       <span v-else class="truncate text-gray-400">
+        {{ placeholder  }}
       </span>
       <svg
         class="w-4 h-4 transition-transform"

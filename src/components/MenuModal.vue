@@ -1,7 +1,9 @@
 <script setup>
 import { ref, defineExpose } from 'vue'
+import SearchModal from './SearchModal.vue'
 
 const isOpen = ref(false)
+const searchRef = ref(null)
 
 // modalni boshqarish methodlari
 const open = () => {
@@ -23,7 +25,7 @@ defineExpose({
     <div v-if="isOpen" class="fixed inset-0 z-50 overflow-auto !bg-black" @click.self="close">
       <!-- Modal content -->
       <transition name="scale">
-        <div v-if="isOpen" class="rounded-2xl   bg-black-900 text-white p-4 shadow-2xl">
+        <div v-if="isOpen" class="rounded-2xl bg-black-900 text-white p-4 shadow-2xl">
           <div class="flex justify-between items-start">
             <div class="flex gap-2.5 items-center">
               <button
@@ -32,7 +34,8 @@ defineExpose({
                 <img src="@/assets/img/category1.svg" alt="" />
               </button>
               <div
-                class="w-10 h-10 max-xl:w-8 max-xl:h-6.5 max-xl:p-1 bg-black-800 p-2 rounded-full"
+                @click="searchRef.open()"
+                class="w-10 h-10 cursor-pointer max-xl:w-8 max-xl:h-6.5 max-xl:p-1 bg-black-800 p-2 rounded-full"
               >
                 <img class="w-full h-full" src="@/assets/img/candle.svg" alt="" />
               </div>
@@ -42,8 +45,10 @@ defineExpose({
                 MENU
               </p>
             </div>
-            <div class="max-xl:w-6.5 max-xl:h-6.5 flex justify-center items-center bg-black-800 rounded-full">
-               <img @click="close" class="cursor-pointer" src="@/assets/img/close.svg" alt="" />
+            <div
+              class="max-xl:w-6.5 max-xl:h-6.5 flex justify-center items-center bg-black-800 rounded-full"
+            >
+              <img @click="close" class="cursor-pointer" src="@/assets/img/close.svg" alt="" />
             </div>
           </div>
           <!-- slot orqali ichidagi kontent tashlanadi -->
@@ -52,6 +57,7 @@ defineExpose({
       </transition>
     </div>
   </transition>
+   <SearchModal ref="searchRef" />
 </template>
 
 <style scoped>
