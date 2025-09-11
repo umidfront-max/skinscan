@@ -1,7 +1,9 @@
 <script setup>
+import { ref } from 'vue'
 import BuyerCard from '@/components/BuyerCard.vue'
+import SearchModal from '@/components/SearchModal.vue'
 
-
+const searchRef = ref()
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import BuyerCard from '@/components/BuyerCard.vue'
       >
         Browse and Sell all CS2 & CS:GO skins
       </h1>
-      <button class="btn-secondary">Advanced search</button>
+      <button @click="searchRef.open()" class="btn-secondary">Advanced search</button>
     </div>
     <div
       class="grid grid-cols-4 gap-3 mt-9 max-lg:gap-2 max-md:grid-cols-3 max-sm:grid-cols-2 max-xs:grid-cols-1"
@@ -26,5 +28,6 @@ import BuyerCard from '@/components/BuyerCard.vue'
       <BuyerCard />
       <BuyerCard />
     </div>
+    <SearchModal ref="searchRef" />
   </div>
 </template>
