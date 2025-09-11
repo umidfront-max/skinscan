@@ -2,7 +2,7 @@
 
 <template>
   <div class=" bg-black-700">
-    <footer class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:flex max-sm:gap-6 max-sm:flex-col !pt-6 !pb-20 container border-b border-black-600">
+    <footer class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:flex max-sm:gap-6 max-sm:flex-col !pt-6 !pb-12 max-md:!pb-10 container border-b border-black-600">
       <div class="col-span-2">
         <h2
           class="font-montserrat-500 uppercase proportional-nums text-xl max-sm:text-base text-white-900 italic"
