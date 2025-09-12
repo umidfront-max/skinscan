@@ -13,6 +13,16 @@ const router = createRouter({
                path: '',
                name: 'buyer',
                component: () => import('../views/Buyer.vue'),
+            },
+           {
+               path: '/buyer/:id',
+               name: 'buyerId',
+               component: () => import('../views/SingleBuyer.vue'),
+            },
+            {
+               path: '/offer/:id',
+               name: 'offer',
+               component: () => import('../views/Offers.vue'),
             }
          ]
       },

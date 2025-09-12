@@ -2,8 +2,10 @@
 import { ref } from 'vue'
 import BuyerCard from '@/components/BuyerCard.vue'
 import SearchModal from '@/components/SearchModal.vue'
+import { useRouter } from 'vue-router'
 
 const searchRef = ref()
+const router = useRouter()
 </script>
 
 <template>
@@ -19,14 +21,7 @@ const searchRef = ref()
     <div
       class="grid grid-cols-4 gap-3 mt-9 max-lg:gap-2 max-md:grid-cols-3 max-sm:grid-cols-2 max-xs:grid-cols-1"
     >
-      <BuyerCard />
-      <BuyerCard />
-      <BuyerCard />
-      <BuyerCard />
-      <BuyerCard />
-      <BuyerCard />
-      <BuyerCard />
-      <BuyerCard />
+      <BuyerCard @click="router.push('/buyer/'+ value)" v-for="value in 8" :key="value" />
     </div>
     <SearchModal ref="searchRef" />
   </div>
