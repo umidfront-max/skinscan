@@ -1,9 +1,9 @@
 <script setup>
 import { ref, defineExpose } from 'vue'
 import SearchModal from './SearchModal.vue'
-
+import ByModal from './ByModal.vue'
 const isOpen = ref(false)
-const searchRef = ref(null)
+const buyerRef = ref(null)
 
 // modalni boshqarish methodlari
 const open = () => {
@@ -34,7 +34,7 @@ defineExpose({
                 <img src="@/assets/img/category1.svg" alt="" />
               </button>
               <div
-                @click="searchRef.open()"
+                @click="buyerRef.open()"
                 class="w-10 h-10 cursor-pointer max-xl:w-8 max-xl:h-6.5 max-xl:p-1 bg-black-800 p-2 rounded-full"
               >
                 <img class="w-full h-full" src="@/assets/img/candle.svg" alt="" />
@@ -57,7 +57,7 @@ defineExpose({
       </transition>
     </div>
   </transition>
-   <SearchModal ref="searchRef" />
+   <ByModal ref="buyerRef" />
 </template>
 
 <style scoped>

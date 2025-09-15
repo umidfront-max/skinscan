@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import MenuModal from './MenuModal.vue'
 import ByModal from './ByModal.vue'
 import SearchModal from './SearchModal.vue'
@@ -41,6 +42,18 @@ const otherItems = [
 
 const showOther = ref(false)
 const showOtherInModal = ref(false)
+
+const router = useRouter()
+const route = useRoute()
+
+// Aktiv button holatini ref orqali saqlaymiz
+const mode = ref(route.query.mode || 'buy') // default BUY
+
+function handleItem(item) {
+   mode.value = item
+   router.push({ query: { ...route.query, mode: item } })
+}
+
 </script>
 
 <template>
@@ -124,10 +137,24 @@ const showOtherInModal = ref(false)
       <!-- Right side -->
       <div class="flex gap-1.5">
         <button
-          @click="buyerRef.open()"
-          class="bg-green-400 cursor-pointer px-4 py-2 max-xl:text-xs max-xl:py-[5px] max-xl:px-[15px] italic text-white rounded-2xl"
+          v-if="mode === 'buy'"
+          @click="handleItem('sell')"
+          :class="[
+            'px-4 py-2 rounded-2xl text-white bg-green-500 italic cursor-pointer max-xl:text-xs max-xl:py-[5px] max-xl:px-[15px]',
+          ]"
         >
           BUY
+        </button>
+
+        <!-- SELL button -->
+        <button
+          v-else
+          @click="handleItem('buy')"
+          :class="[
+            'px-4 py-2 rounded-2xl bg-red-500 text-white italic cursor-pointer max-xl:text-xs max-xl:py-[5px] max-xl:px-[15px]',
+          ]"
+        >
+          SELL
         </button>
         <button
           @click="openModal"
@@ -136,7 +163,7 @@ const showOtherInModal = ref(false)
           <img src="@/assets/img/category.svg" alt="" />
         </button>
         <div
-          @click="searchRef.open()"
+          @click="buyerRef.open()"
           class="w-10 cursor-pointer max-[970px]:hidden h-10 max-xl:w-8 max-xl:h-6.5 max-xl:p-1 bg-black-800 p-2 rounded-full"
         >
           <img class="w-full h-full" src="@/assets/img/candle.svg" alt="" />
