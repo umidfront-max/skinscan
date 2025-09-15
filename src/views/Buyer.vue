@@ -21,7 +21,16 @@ const router = useRouter()
     <div
       class="grid grid-cols-4 gap-3 mt-9 max-lg:gap-2 max-md:grid-cols-3 max-sm:grid-cols-2 max-xs:grid-cols-1"
     >
-      <BuyerCard @click="router.push('/buyer/'+ value)" v-for="value in 8" :key="value" />
+      <BuyerCard
+        @click="
+          router.push({
+            path: '/buyer/' + value,
+            query: { mode: router.currentRoute?.value?.query?.mode || 'buy' },
+          })
+        "
+        v-for="value in 8"
+        :key="value"
+      />
     </div>
     <SearchModal ref="searchRef" />
   </div>
