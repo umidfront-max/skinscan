@@ -3,6 +3,9 @@ import { ref } from 'vue'
 import BuyerSingleCard from '@/components/BuyerSingleCard.vue'
 import InputRange from '@/components/InputRange.vue'
 import Containers from '@/components/Containers.vue'
+import History from '@/components/History.vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 const offers = ref([
   {
     id: 1,
@@ -41,7 +44,7 @@ const offers = ref([
       <BuyerSingleCard />
       <div class="flex flex-col gap-1">
         <div
-          class="flex justify-between rounded-2xl transition p-4 bg-black-700 hover:bg-[#F16001]"
+          class="flex justify-between rounded-2xl mt-1 transition p-4 bg-black-700 hover:bg-[#F16001]"
         >
           <p class="font-montserrat-300">Factory new</p>
           <p class="font-montserrat-300">$1,392.35</p>
@@ -160,7 +163,7 @@ const offers = ref([
               </div>
 
               <!-- Middle part -->
-              <div class="flex items-center gap-4">
+              <div v-if="route.query.mode == 'buy'" class="flex items-center gap-4">
                 <p class="text-sm text-gray-300">
                   <span class="text-gray-500">From - </span> ${{ offer.price }}
                 </p>
@@ -177,6 +180,9 @@ const offers = ref([
                   +22% best price
                 </button>
               </div>
+              <p class="text-gray-400 font-montserrat-300 text-sm" v-else>
+                Active offers - <span class="text-white">14</span>
+              </p>
 
               <!-- Buttons -->
               <div class="flex items-center gap-2">
@@ -187,7 +193,9 @@ const offers = ref([
                   <img v-else src="@/assets/img/send.svg" alt="" />
                   <span>{{ offer.type }}</span>
                 </button>
-                <button class="px-4 cursor-pointer py-2 rounded-3xl bg-orange-500 hover:bg-orange-600 text-white">
+                <button
+                  class="px-4 cursor-pointer py-2 rounded-3xl bg-orange-500 hover:bg-orange-600 text-white"
+                >
                   Sell
                 </button>
               </div>
@@ -215,7 +223,7 @@ const offers = ref([
             </div>
 
             <!-- Middle part -->
-            <div class="flex items-center gap-4">
+            <div v-if="route.query.mode == 'buy'" class="flex items-center gap-4">
               <p class="text-sm text-gray-300">
                 <span class="text-gray-500">From - </span> ${{ offer.price }}
               </p>
@@ -232,7 +240,9 @@ const offers = ref([
                 +22% best price
               </button>
             </div>
-
+            <p class="text-gray-400 font-montserrat-300 text-sm" v-else>
+              Active offers - <span class="text-white">14</span>
+            </p>
             <!-- Buttons -->
             <div class="flex items-center gap-2">
               <button
@@ -249,6 +259,8 @@ const offers = ref([
           </div>
         </div>
       </div>
+
+      <History />
     </div>
   </div>
 </template>

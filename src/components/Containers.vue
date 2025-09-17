@@ -36,7 +36,7 @@ const stats = [
       </span>
     </div>
   </div>
-  <div>
+  <div class="mt-5">
     <p class="uppercase font-montserrat-500 italic">Price statistics</p>
     <div class="my-1.5 rounded-2xl bg-black-700 py-3 px-4">
       <div
