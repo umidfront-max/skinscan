@@ -18,9 +18,9 @@ const stats = [
 
 <template>
    <div>
-      <div class="grid grid-cols-3 gap-4 my-3">
+      <div class="grid grid-cols-3 gap-4 my-3 max-md:flex max-md:flex-col-reverse">
         <div class="">
-          <p class="uppercase font-montserrat-500 text-2xl italic">Summary</p>
+          <p class="uppercase font-montserrat-500 text-2xl max-lg:text-base italic">Summary</p>
           <div class="my-1.5 rounded-2xl bg-black-700 py-3 px-4">
             <div
               v-for="(item, index) in stats"

@@ -39,8 +39,10 @@ const offers = ref([
 </script>
 
 <template>
-  <div class="flex gap-2">
-    <div class="w-[324px]">
+  <div class="flex gap-2 max-[900px]:flex-col">
+    <div
+      class="w-[324px] max-xl:w-60 max-[900px]:!w-full max-[900px]:grid max-md:grid-cols-1 max-[900px]:grid-cols-2"
+    >
       <BuyerSingleCard />
       <div class="flex flex-col gap-1">
         <div
@@ -71,21 +73,26 @@ const offers = ref([
       <InputRange />
       <Containers />
     </div>
-    <div class="bg-black grow-1 flex-1 min-h-screen text-white p-6">
+    <div class="bg-black grow-1 flex-1 min-h-screen text-white p-6 pr-0 max-[900px]:p-0">
       <div class="flex gap-2 mb-6">
         <p class="font-montserrat-500 !text-base italic">ACTIVE OFFERS</p>
         <img class="w-3 -mt-1" src="@/assets/img/received.svg" alt="" />
       </div>
 
       <!-- Offers list -->
-      <div class="space-y-6 overflow-hidden">
-        <div v-for="(offer, ind) in offers" :key="offer.id" :class="['relative']">
+      <div class="space-y-6 overflow-hidden max-sm:pb-6">
+        <div
+          class="relative max-sm:top-5"
+          v-for="(offer, ind) in offers"
+          :key="offer.id"
+          :class="ind == 0 && 'max-sm:!top-0'"
+        >
           <div class="" v-if="ind == 0">
             <svg
               viewBox="0 0 752 82"
               id="preview"
               xmlns="http://www.w3.org/2000/svg"
-              class="max-h-[70vh] absolute top-0 overflow-visible"
+              class="max-h-[70vh] max-xl:hidden max-xl:text-2xl absolute top-0 overflow-visible"
             >
               <defs>
                 <!-- Gradient chapdan o‘ngga, ranglar almashgan -->
@@ -141,11 +148,226 @@ const offers = ref([
               </g>
             </svg>
 
+            <svg
+              viewBox="0 0 882 121"
+              id="preview1"
+              xmlns="http://www.w3.org/2000/svg"
+              class="max-h-[70vh] hidden max-lg:hidden max-xl:text-2xl absolute top-0 max-xl:block overflow-visible"
+            >
+              <defs>
+                <linearGradient id="borderGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#C10801" />
+                  <stop offset="100%" stop-color="#F16001" />
+                </linearGradient>
+                <pattern id="grid1" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 10 0 L 0 0 0 10"
+                    fill="none"
+                    stroke="#513d34"
+                    opacity="1"
+                    stroke-width="1"
+                  />
+                </pattern>
+              </defs>
+              <rect width="90000" height="90000" class="-translate-[45000px]" fill="url(#grid1)" />
+              <path
+                d="M17,0H547A15,15 0,0,1 562,15V15A13,13 0,0,0 575,28H867A15,15 0,0,1 882,43V109A13,13 0,0,1 869,122H17A17,17 0,0,1 0,105V17A17,17 0,0,1 17,0Z"
+                fill="url(#borderGradient1)"
+                stroke="url(#borderGradient1)"
+                stroke-width="1"
+              />
+              <path
+                class="inner-path"
+                d="M17,1H547A14,14 0,0,1 561,15V15A14,14 0,0,0 575,29H867A14,14 0,0,1 881,43V109A12,12 0,0,1 869,121H17A16,16 0,0,1 1,105V17A16,16 0,0,1 17,1Z"
+                fill="black"
+                stroke="url(#borderGradient1)"
+                stroke-width="1"
+              />
+              <g stroke="dodgerblue" fill="none" stroke-width=".5%" stroke-linecap="round">
+                <path class="hidden" d="M1 17 A16 16 0 0 1 17 1" />
+                <path class="hidden" d="M869 121 A12 12 0 0 0 881 109" />
+                <path class="hidden" d="M17 121 A16 16 0 0 1 1 105" />
+              </g>
+              <g class="fill-coffee stroke-gray-300 handlers" stroke-width=".3%">
+                <circle data-index="0" cx="17" cy="17" />
+                <circle data-index="2" cx="869" cy="109" />
+                <circle data-index="3" cx="17" cy="105" />
+              </g>
+            </svg>
+            <svg
+              viewBox="0 0 882 162"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full h-[122px] hidden max-xl:text-2xl absolute top-0 max-lg:block max-[900px]:!hidden overflow-visible"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <defs>
+                <!-- Gradient border -->
+                <linearGradient id="borderGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#C10801" />
+                  <stop offset="100%" stop-color="#F16001" />
+                </linearGradient>
+
+                <!-- Grid pattern -->
+                <pattern id="grid3" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 10 0 L 0 0 0 10"
+                    fill="none"
+                    stroke="#513d34"
+                    opacity="0.3"
+                    stroke-width="0.6"
+                  />
+                </pattern>
+              </defs>
+
+              <!-- Orqa fon grid -->
+              <rect width="90000" height="90000" class="-translate-[45000px]" fill="url(#grid3)" />
+
+              <!-- Tashqi shakl -->
+              <path
+                d="M17,0H527A15,15 0,0,1 542,15V15A13,13 0,0,0 555,28H867A15,15 0,0,1 882,43V155A17,17 0,0,1 865,172H17A17,17 0,0,1 0,155V17A17,17 0,0,1 17,0Z"
+                fill="url(#borderGradient3)"
+                stroke="url(#borderGradient3)"
+                stroke-width="1"
+              />
+
+              <!-- Ichki shakl -->
+              <path
+                class="inner-path"
+                d="M17,1H527A14,14 0,0,1 541,15V15A14,14 0,0,0 555,29H867A14,14 0,0,1 881,43V155A16,16 0,0,1 865,171H17A16,16 0,0,1 1,155V17A16,16 0,0,1 17,1Z"
+                fill="black"
+                stroke="url(#borderGradient3)"
+                stroke-width="1"
+              />
+            </svg>
+
+            <svg
+              viewBox="0 0 362 172"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-full max-h-[70vh] hidden max-xl:text-2xl absolute top-0 max-[466px]:block max-[400px]:hidden overflow-visible"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <defs>
+                <!-- Gradient border -->
+                <linearGradient id="borderGradientNew" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#C10801" />
+                  <stop offset="100%" stop-color="#F16001" />
+                </linearGradient>
+
+                <!-- Grid pattern -->
+                <pattern id="gridNew" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 10 0 L 0 0 0 10"
+                    fill="none"
+                    stroke="#513d34"
+                    opacity="0.3"
+                    stroke-width="0.6"
+                  />
+                </pattern>
+              </defs>
+
+              <!-- Orqa fon grid -->
+              <rect
+                width="90000"
+                height="90000"
+                class="-translate-[45000px]"
+                fill="url(#gridNew)"
+              />
+
+              <!-- Tashqi shakl -->
+              <path
+                d="M11,0H166A11,11 0,0,1 177,11V11A9,9 0,0,0 186,20H351A11,11 0,0,1 362,31V161A11,11 0,0,1 351,172H11A11,11 0,0,1 0,161V11A11,11 0,0,1 11,0Z"
+                fill="url(#borderGradientNew)"
+                stroke="url(#borderGradientNew)"
+                stroke-width="1"
+              />
+
+              <!-- Ichki shakl -->
+              <path
+                class="inner-path"
+                d="M11,1H166A10,10 0,0,1 176,11V11A10,10 0,0,0 186,21H351A10,10 0,0,1 361,31V161A10,10 0,0,1 351,171H11A10,10 0,0,1 1,161V11A10,10 0,0,1 11,1Z"
+                fill="black"
+                stroke="url(#borderGradientNew)"
+                stroke-width="1"
+              />
+            </svg>
+            <svg
+              viewBox="0 0 362 192"
+              id="preview"
+              xmlns="http://www.w3.org/2000/svg"
+              class="max-h-[70vh] hidden max-xl:text-2xl absolute top-0 max-[400px]:block overflow-visible"
+            >
+              <defs>
+                <!-- Gradient border -->
+                <linearGradient id="borderGradientNew2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#C10801" />
+                  <stop offset="100%" stop-color="#F16001" />
+                </linearGradient>
+
+                <!-- Grid pattern -->
+                <pattern id="gridNew2" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 10 0 L 0 0 0 10"
+                    fill="none"
+                    stroke="#513d34"
+                    opacity="0.3"
+                    stroke-width="0.6"
+                  />
+                </pattern>
+              </defs>
+
+              <!-- Orqa fon grid -->
+              <rect
+                width="90000"
+                height="90000"
+                class="-translate-[45000px]"
+                fill="url(#gridNew2)"
+              />
+
+              <!-- Tashqi shakl -->
+              <path
+                d="M11,0H151A11,11 0,0,1 162,11V11A9,9 0,0,0 171,20H351A11,11 0,0,1 362,31V181A11,11 0,0,1 351,192H11A11,11 0,0,1 0,181V11A11,11 0,0,1 11,0Z"
+                fill="url(#borderGradientNew2)"
+                stroke="url(#borderGradientNew2)"
+                stroke-width="1"
+              />
+
+              <!-- Ichki shakl -->
+              <path
+                class="inner-path"
+                d="M11,1H151A10,10 0,0,1 161,11V11A10,10 0,0,0 171,21H351A10,10 0,0,1 361,31V181A10,10 0,0,1 351,191H11A10,10 0,0,1 1,181V11A10,10 0,0,1 11,1Z"
+                fill="black"
+                stroke="url(#borderGradientNew2)"
+                stroke-width="1"
+              />
+
+              <!-- Corner helpers -->
+              <g stroke="dodgerblue" fill="none" stroke-width=".5%" stroke-linecap="round">
+                <path class="hidden" d="M1 11 A10 10 0 0 1 11 1" />
+                <path class="hidden" d="M351 1 A10 10 0 0 1 361 11" />
+                <path class="hidden" d="M351 191 A10 10 0 0 0 361 181" />
+                <path class="hidden" d="M11 191 A10 10 0 0 1 1 181" />
+              </g>
+
+              <!-- Handler circles -->
+              <g class="fill-coffee stroke-gray-300 handlers" stroke-width=".3%">
+                <circle data-index="0" cx="11" cy="11" />
+                <circle data-index="2" cx="351" cy="181" />
+                <circle data-index="3" cx="11" cy="181" />
+              </g>
+            </svg>
+
             <!-- Recommended badge -->
-            <div v-if="offer.recommended" class="recommended-label">RECOMMENDED OFFER</div>
-            <div class="flex relative z-1 justify-between items-end p-6 pt-5">
-              <div>
-                <h3 class="text-lg font-montserrat-500 flex items-center gap-2">
+            <div
+              v-if="offer.recommended"
+              class="recommended-label max-[1350px]:text-sm max-sm:text-xs"
+            >
+              RECOMMENDED OFFER
+            </div>
+            <div
+              class="flex max-sm:grid max-sm:grid-cols-2 max-sm:gap-2.5 relative z-1 justify-between items-end p-6 pt-5 max-md:px-4 max-sm:py-1"
+            >
+              <div class="max-sm:col-span-2">
+                <h3 class="text-lg font-montserrat-300 flex items-center gap-2">
                   <img v-if="ind == 0" src="@/assets/img/a1.svg" alt="" />
                   <img v-else-if="ind == 1" src="@/assets/img/a2.svg" alt="" />
                   <img v-else src="@/assets/img/a3.svg" alt="" />
@@ -163,19 +385,22 @@ const offers = ref([
               </div>
 
               <!-- Middle part -->
-              <div v-if="route.query.mode == 'buy'" class="flex items-center gap-4">
+              <div
+                v-if="route.query.mode == 'buy'"
+                class="flex items-center max-sm:col-span-2 max-sm:justify-between max-sm:flex-row-reverse gap-4"
+              >
                 <p class="text-sm text-gray-300">
                   <span class="text-gray-500">From - </span> ${{ offer.price }}
                 </p>
                 <button
                   v-if="offer.bestPrice"
-                  class="bg-green-400 text-black px-4 py-2 rounded-2xl text-xs"
+                  class="bg-green-400 text-black px-4 py-2 rounded-2xl text-xs max-sm:py-1.5"
                 >
                   {{ offer.bestPrice }}
                 </button>
                 <button
                   v-else
-                  class="bg-green-400 invisible text-black px-4 py-2 rounded-2xl text-xs"
+                  class="bg-green-400 invisible text-black px-4 py-2 max-sm:py-1.5 rounded-2xl text-xs"
                 >
                   +22% best price
                 </button>
@@ -185,16 +410,18 @@ const offers = ref([
               </p>
 
               <!-- Buttons -->
-              <div class="flex items-center gap-2">
+              <div
+                class="flex items-center gap-2 max-sm:grid max-sm:grid-cols-2 max-sm:gap-4 max-sm:col-span-2"
+              >
                 <button
-                  class="border cursor-pointer rounded-3xl flex gap-1.5 border-black-600 py-3 px-6 bg-black-800 text-xs hover:bg-black-600"
+                  class="border justify-center cursor-pointer rounded-3xl flex gap-1.5 border-black-600 py-3 px-6 max-sm:py-2 max-sm:px-4  bg-black-800 text-xs hover:bg-black-600"
                 >
                   <img v-if="!ind" src="@/assets/img/flash.svg" alt="" />
                   <img v-else src="@/assets/img/send.svg" alt="" />
                   <span>{{ offer.type }}</span>
                 </button>
                 <button
-                  class="px-4 cursor-pointer py-2 rounded-3xl bg-orange-500 hover:bg-orange-600 text-white"
+                  class="py-3 px-6 max-sm:py-2 max-sm:px-4 cursor-pointer text-xs rounded-3xl bg-orange-500 hover:bg-orange-600 text-white"
                 >
                   Sell
                 </button>
@@ -203,9 +430,12 @@ const offers = ref([
           </div>
 
           <!-- Left part -->
-          <div v-else class="flex justify-between p-6 rounded-2xl bg-black-700 items-center">
+          <div
+            v-else
+            class="flex justify-between mt-1 p-6 max-sm:grid max-sm:grid-cols-2 max-md:!px-4 max-md:!py-2 rounded-2xl bg-black-700 items-center"
+          >
             <div>
-              <h3 class="text-lg font-semibold flex items-center gap-2">
+              <h3 class="text-lg font-montserrat-300 flex items-center gap-2">
                 <img v-if="ind == 0" src="@/assets/img/a1.svg" alt="" />
                 <img v-else-if="ind == 1" src="@/assets/img/a2.svg" alt="" />
                 <img v-else src="@/assets/img/a3.svg" alt="" />
@@ -223,7 +453,7 @@ const offers = ref([
             </div>
 
             <!-- Middle part -->
-            <div v-if="route.query.mode == 'buy'" class="flex items-center gap-4">
+            <div v-if="route.query.mode == 'buy'" class="flex items-center gap-4 max-sm:col-span-2 max-sm:justify-between max-sm:flex-row-reverse">
               <p class="text-sm text-gray-300">
                 <span class="text-gray-500">From - </span> ${{ offer.price }}
               </p>
@@ -244,15 +474,17 @@ const offers = ref([
               Active offers - <span class="text-white">14</span>
             </p>
             <!-- Buttons -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center max-sm:grid max-sm:grid-cols-2 max-sm:col-span-2 gap-2">
               <button
-                class="border rounded-3xl flex gap-1.5 border-black-600 py-3 px-6 bg-black-800 text-xs hover:bg-black-600"
+                class="border justify-center rounded-3xl flex gap-1.5 border-black-600 py-3 px-6 max-sm:py-2 max-sm:px-4 bg-black-800 text-xs hover:bg-black-600"
               >
                 <img v-if="!ind" src="@/assets/img/flash.svg" alt="" />
                 <img v-else src="@/assets/img/send.svg" alt="" />
                 <span>{{ offer.type }}</span>
               </button>
-              <button class="px-4 py-2 rounded-3xl bg-orange-500 hover:bg-orange-600 text-white">
+              <button
+                class="py-3 px-6 max-sm:py-2 max-sm:px-4 cursor-pointer text-xs rounded-3xl bg-orange-500 hover:bg-orange-600 text-white"
+              >
                 Sell
               </button>
             </div>
@@ -435,6 +667,18 @@ body {
 
   border-bottom: none;
   border-radius: 8px 8px 0 0;
+  @media (max-width: 1279px) {
+    right: 44px;
+    top: -2px;
+  }
+  @media (max-width: 930px) {
+    right: 14px;
+    top: -2px;
+  }
+  @media (max-width: 400px) {
+    right: 4px;
+    top: -3px;
+  }
 }
 
 /* Optional: curved cut look */

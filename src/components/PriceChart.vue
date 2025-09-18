@@ -49,35 +49,39 @@ const chartOptions = ref({
 <template>
   <div class="bg-blackrounded-xl">
     <!-- Title -->
-    <h2 class="uppercase font-montserrat-500 text-2xl italic">PRICE HISTORY</h2>
+    <h2 class="uppercase font-montserrat-500 text-2xl max-lg:text-base italic">PRICE HISTORY</h2>
 
     <!-- Stats cards -->
     <div class="grid grid-cols-3 gap-4 my-1.5">
-      <div class="bg-[#111] rounded-lg p-4 text-center">
-        <p class="text-gray-400 text-sm">Price change</p>
-        <p class="text-lg font-montserrat-300">{{ priceChange }}$</p>
-        <p
-          class="text-xs text-red-400"
-          :class="priceChange < 0 ? 'text-red-400' : 'text-green-400'"
-        >
-          ▼ 0.72%
-        </p>
+      <div class="bg-[#111] rounded-lg p-4 max-sm:pb-6">
+        <p class="text-gray-400 font-montserrat-300 text-sm max-sm:text-xs">Price change</p>
+        <div class="flex gap-1 mt-2">
+          <p class="text-lg max-sm:text-sm font-montserrat-300">{{ priceChange }}$</p>
+          <p
+            class="text-xs max-sm:text-[10px] text-red-400"
+            :class="priceChange < 0 ? 'text-red-400' : 'text-green-400'"
+          >
+            ▼0.72%
+          </p>
+        </div>
       </div>
 
-      <div class="bg-[#111] rounded-lg p-4 text-center">
-        <p class="text-gray-400 text-sm">Offers change</p>
-        <p class="text-lg font-montserrat-300">+{{ offersChange }}</p>
-        <p
-          class="text-xs text-green-400"
-          :class="offersChange > 0 ? 'text-green-400' : 'text-red-400'"
-        >
-          ▲ 39%
-        </p>
+      <div class="bg-[#111] rounded-lg p-4 pb-6 max-sm:pb-6">
+        <p class="text-gray-400 font-montserrat-300 max-sm:text-xs">Offers change</p>
+        <div class="flex gap-1 mt-2">
+          <p class="text-lg max-sm:text-sm font-montserrat-300">+{{ offersChange }}</p>
+          <p
+            class="text-xs max-sm:text-[10px] text-green-400"
+            :class="offersChange > 0 ? 'text-green-400' : 'text-red-400'"
+          >
+            ▲39%
+          </p>
+        </div>
       </div>
 
-      <div class="bg-[#111] rounded-lg p-4 text-center">
-        <p class="text-gray-400 text-sm">Offers sold</p>
-        <p class="text-lg font-montserrat-300">{{ offersSold }}</p>
+      <div class="bg-[#111] rounded-lg p-4 max-sm:pb-6">
+        <p class="text-gray-400 font-montserrat-300  max-sm:text-xs">Offers sold</p>
+        <p class="text-lg max-sm:text-sm font-montserrat-300">{{ offersSold }}</p>
       </div>
     </div>
     <div class="bg-black-700 p-4 pr-2 pb-0 text-black rounded-2xl">
@@ -95,7 +99,13 @@ const chartOptions = ref({
       </div>
 
       <!-- Chart -->
-      <VueApexCharts class="-mx-4" type="line" height="210" :options="chartOptions" :series="series" />
+      <VueApexCharts
+        class="-mx-4"
+        type="line"
+        height="210"
+        :options="chartOptions"
+        :series="series"
+      />
     </div>
   </div>
 </template>
